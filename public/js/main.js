@@ -25,16 +25,17 @@ document.addEventListener("click", (event) => {
     const productImage = productCard.querySelector(".product-img img");
     const productDesc = productCard.querySelector(".product-desc");
 
-    const product = {
-        name: productName.textContent.trim(),
-        price: productPrice.textContent.trim(),
-        image: productImage.src,
-        description: productDesc.textContent.trim()
-    };
+ const product = {
+    id: productCard.dataset.productId,
+    name: productName.textContent.trim(),
+    price: productPrice.textContent.trim(),
+    image: productImage.src,
+    description: productDesc.textContent.trim()
+};
 
-    const existingProduct = cart.find(
-        (item) => item.name === product.name
-    );
+   const existingProduct = cart.find(
+    (item) => item.id === product.id
+);
 
     if (existingProduct) {
         existingProduct.quantity = (existingProduct.quantity || 1) + 1;
