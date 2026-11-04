@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <link rel="stylesheet" href="./css/payment.css">
+</head>
+<body>
+    <div class="payment-container">
+        <h1>Payment</h1>
+        <div class="order-details">
+            <h2>Order Summary</h2>
+            <p>Subtotal:<span id="subtotal">$0.00</span></p>
+            <p>Shipping:><span id="shipping">$0.00</span></p>
+            <h3>Total: <span id="total">$0.00</span></h3>
+        </div>
+
+        <div class="payment-method">
+            <h2>Selecte Payment Method</h2>
+            <label>
+                <input type="radio" name="payment" value="cod" checked>Cash on Delivery
+            </label>
+            <br>
+            <lable>
+                <input type="radio" name="payment" value="upi">UPI
+            </lable>
+            <br>
+            <lable>
+                <input type="radio" name="payment" value="card">Credit/Debit Card
+            </lable>
+        </div>
+        <button id="place-order" type="button">Place Order</button>
+    </div>
+    <script src="./js/payment.js"></script>
+</body>
+</html>

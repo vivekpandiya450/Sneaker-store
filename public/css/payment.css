@@ -1,0 +1,132 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f8f4ec;
+    color: #3e2818;
+    padding: 30px 15px;
+}
+
+/* PAYMENT CONTAINER */
+.payment-container {
+    max-width: 650px;
+    margin: 30px auto;
+    padding: 30px;
+    background: #fff;
+    border: 1px solid #e5d7c4;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(62, 40, 24, 0.1);
+}
+
+/* MAIN HEADING */
+.payment-container > h1 {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e5d7c4;
+}
+
+/* ORDER SUMMARY */
+.order-details {
+    background: #f8f4ec;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+}
+
+.order-details h2,
+.payment-method h2 {
+    font-size: 20px;
+    margin-bottom: 18px;
+}
+
+.order-details p {
+    display: flex;
+    justify-content: space-between;
+    margin: 12px 0;
+    font-size: 15px;
+}
+
+.order-details h3 {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #d8c7b0;
+    padding-top: 15px;
+    margin-top: 15px;
+    font-size: 19px;
+}
+
+/* PAYMENT METHODS */
+.payment-method {
+    margin-bottom: 25px;
+}
+
+.payment-method label {
+    display: block;
+    background: #faf7f1;
+    border: 1px solid #e5d7c4;
+    border-radius: 7px;
+    padding: 15px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.payment-method label:hover {
+    background: #eee2ce;
+}
+
+.payment-method input {
+    margin-right: 10px;
+    accent-color: #6b4226;
+}
+
+/* PLACE ORDER BUTTON */
+#place-order {
+    width: 100%;
+    padding: 14px;
+    background: #6b4226;
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#place-order:hover {
+    background: #4e2f1b;
+}
+
+#place-order:active {
+    transform: scale(0.98);
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 480px) {
+    body {
+        padding: 15px 10px;
+    }
+
+    .payment-container {
+        padding: 20px 15px;
+        margin: 15px auto;
+    }
+
+    .payment-container > h1 {
+        font-size: 25px;
+    }
+
+    .order-details h2,
+    .payment-method h2 {
+        font-size: 18px;
+    }
+}
+

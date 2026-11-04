@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart | SneakerStore</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<link rel="stylesheet" href="./css/cart.css">
+</head>
+<body>
+<!-- ===== NAVBAR ===== -->
+  <header class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">
+        <img src="images/shoselogo.png" alt="Sneaker Store Logo" />
+      </a>
+
+      <nav class="nav-links">
+        <a href="#">Women</a>
+        <a href="#">Men</a>
+        <a href="#">Kids</a>
+        <a href="#">Accessories</a>
+        <a href="#">Collection</a>
+        <a href="#">Brands</a>
+      </nav>
+
+      <div class="nav-icons">
+        <a href="#" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></a>
+
+        <a href="login.html" class="user-link" aria-label="Account">
+          <i class="fa-regular fa-user"></i>
+          <span id="user-name">Login</span>
+        </a>
+
+        <a href="signup.html" class="signup-link">Sign Up</a>
+
+        <a href="#" aria-label="Wishlist"><i class="fa-regular fa-heart"></i></a>
+
+        <a href="index.html" class="cart-icon" aria-label="Cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <b id="cart-count">0</b>
+        </a>
+      </div>
+    </div>
+  </header>
+<main class="container">
+    <h1>Shopping Cart</h1>
+    <div class="cart-layout">
+
+        <!-- Left side: Products -->
+        <section class="cart-products">
+            <div id="cart-items"></div>
+        </section>
+
+        <!-- Right side: Order Summary -->
+        <aside class="order-summary">
+            <h2>Order Summary</h2>
+
+            <p>
+                Subtotal:
+                <span id="subtotal">$0.00</span>
+            </p>
+
+            <p>
+                Shipping:
+                <span id="shipping">$0.00</span>
+            </p>
+            <div class="delivery-location">
+             <button type="button" id="add-address-btn">
+               + Add Your Delivery Address
+             </button>
+              </div>
+
+            <hr>
+
+            <h3>
+                Total:
+                <span id="total">$0.00</span>
+            </h3>
+
+            <button id="buy-now" type="button">Buy Now</button>
+        </aside>
+
+    <div id="saved-addresses" class="saved-addresses">
+
+    <h3>Delivering To</h3>
+
+    <p id="display-name"></p>
+
+    <p id="display-address"></p>
+
+   <div class="address-actions">
+
+    <button type="button" id="edit-address-btn">
+        Edit Address
+    </button>
+
+    <button type="button" id="delete-address-btn">
+        Delete Address
+    </button>
+
+</div>
+
+</div>
+    </div>
+
+</main>
+<!-- Delivery Address Popuo -->
+ <div id="address-modal" class="address-modal">
+  <div class="address-modal-content">
+    <h2>Add Delivery Address</h2>
+    <button  type="button" id="close-modal" class="close-modal">
+      &times;
+    </button>
+    <form id="address-form">
+      <label for="full-name">Full Name</label>
+      <input type="text" id="full-name" placeholder="Enter your full name" required>
+
+      <label for="mobile-number">Mobile Number</label>
+      <input
+    type="tel"
+    id="mobile-number"
+    placeholder="Enter 10-digit mobile number"
+    maxlength="10"
+    pattern="[6-9][0-9]{9}"
+    required
+>
+
+      <label for="pincode">PIN Code</label>
+      <input type="text" id="pincode" placeholder="Enter 6-digit PIN code"
+      max-length="6" pattern="[0-9]{6}" required> 
+
+      <label for="city">Town/City</label>
+      <input type="text" id="city" placeholder="Enter your town or city" required>
+      <label for="state">State</label>
+      <input type="text" id="state" placeholder="Enter your state" required>
+
+      <button type="submit" id="use-address-btn">Use This Address</button>
+    </form>
+  </div>
+ </div>
+<script src="js/cart.js"></script>
+</body>
+</html>

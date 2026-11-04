@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sneaker Store</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">
+        <img src="images/shoselogo.png" alt="Sneaker Store Logo" />
+      </a>
+
+      <nav class="nav-links">
+        <a href="#">Women</a>
+        <a href="#">Men</a>
+        <a href="#">Kids</a>
+        <a href="#">Accessories</a>
+        <a href="#">Collection</a>
+        <a href="#">Brands</a>
+      </nav>
+
+      <div class="nav-icons">
+        <a href="#" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></a>
+
+        <a href="login.html" class="user-link" aria-label="Account">
+          <i class="fa-regular fa-user"></i>
+          <span id="user-name">Login</span>
+        </a>
+
+        <a href="signup.html" class="signup-link">Sign Up</a>
+
+        <a href="#" aria-label="Wishlist"><i class="fa-regular fa-heart"></i></a>
+
+        <a href="cart.html" class="cart-icon" aria-label="Cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <b id="cart-count">0</b>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <img src="images/banner1.png" alt="Man showing white sneakers" class="hero-img" />
+    <div class="hero-text">
+      <h1>Sneakers That Defy Your Every<br />day Look</h1>
+      <button class="btn btn-brown">Shop Now</button>
+    </div>
+  </section>
+
+  <!-- ===== 3 PROMO CARDS ===== -->
+  <section class="container promo-grid">
+
+    <!-- Card 1 -->
+    <div class="promo-card">
+      <img src="images/card1.png" alt="Comfortable durable sneakers" class="promo-img" />
+      <div class="promo-content">
+        <p>Sneakers That Move With You, Comfortable, Durable, And Always In Style.</p>
+        <button class="btn btn-dark">Find Your Fit</button>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="promo-card">
+      <img src="images/card2.png" alt="Fresh drops iconic silhouettes" class="promo-img" />
+      <div class="promo-content">
+        <p>Fresh Drops. Iconic Silhouettes. Sneakers That Speak Before You Do.</p>
+        <button class="btn btn-dark">Get Your Pair</button>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="promo-card">
+      <img src="images/card3.png" alt="Style stack sneakers" class="promo-img" />
+      <div class="promo-content promo-center">
+        <h3>STYLE-STACK</h3>
+        <button class="btn btn-white">Shop Sneakers</button>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ===== NEWLY DROPPED ===== -->
+  <section class="container section">
+    <h2 class="section-title">Newly Dropped Collections</h2>
+    <p class="section-sub">These sneakers drops to timeless classics, we bring you authentic kicks built for style and comfort and</p>
+
+    <div class="product-grid" id="newly-grid">
+
+    </div>
+
+    <div class="center"><button class="btn btn-outline">See More Collections</button></div>
+  </section>
+
+  <section class="container section">
+    <h2 class="section-title">Most Recommend Collections For You</h2>
+    <p class="Section-sub">These sneakers Drops to timeless classics we bring you authentic kicks for style and comfort and</p>
+    <div class="reco-grid">
+      <!-- big card (left) -->
+       <div class="reco-card reco-big">
+        <img src="images/reco1.png" alt="Sneakers collection" class="reco-img"/>
+        <div class="reco-content">
+          <h3>Sneakers</h3>
+          <button class="btn-btn-White">View all sneakers</button>
+        </div>
+       </div>
+
+       <!-- Small card1(right upar) -->
+        <div class="reco-card">
+          <img src="images/reco2.png" alt="lacing sneakers" class="reco-img">
+          <div class="reco-content reco-top">
+            <h3>Sneakers</h3>
+            <button class="btn btn-white">View all sneakers</button>
+          </div>
+        </div>
+
+        <!-- small card2(right in down) -->
+         <div class="reco-card">
+          <img src="images/reco3.png" alt="Sneaker sole close up" class="reco-img"/>
+          <div class="reco-content reco-top">
+            <h3>Sneakers</h3>
+            <button class="btn btn-white">View all sneakers</button>
+          </div> 
+         </div>
+
+         <!-- Wide Card(In down of all 3 photo) -->
+         <div class="reco-card reco-wide">
+          <img src="images/reco4.png" alt="Treading sneakers" class="reco-img"/>
+          <div class="rec-content">
+            <h3>Treading Now</h3>
+            <button class="btn btn-White">Explore Shop</button>
+          </div>
+         </div>
+    </div>
+  </section>
+
+<section class="container section">
+  <h2 class="section-title">Summer Collections</h2>
+  <p class="section-sub">These sneakers drops to timeless classics we bring you authentic kicks built for style and comfort and</p>
+
+  <div class="product-grid" id="summer-grid">
+    <!-- Card 1 -->
+      <div class="product-card">
+        <div class="product-img"><img src="images/summer1.png" alt="Silver Neon Runner" /></div>
+        <div class="product-top">
+          <span class="price">$88.99</span>
+          <span class="tag">Men's Sneakers</span>
+        </div>
+        <h4 class="product-name">Canvas Classic</h4>
+        <p class="product-desc">Lightweight running sneaker with neon accents and a chunky cushioned sole.</p>
+        <div class="product-btns">
+          <button class="btn btn-light">Add to Cart</button>
+        
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="product-card">
+        <div class="product-img"><img src="images/summer2.png" alt="Cream Training Shoe" /></div>
+        <div class="product-top">
+          <span class="price">$79.99</span>
+          <span class="tag">Men's Sandals</span>
+        </div>
+        <h4 class="product-name">Trail Sport Sandal</h4>
+        <p class="product-desc">Breathable mesh upper with a soft gum sole, made for all-day comfort.</p>
+        <div class="product-btns">
+          <button class="btn btn-light">Add to Cart</button>
+          
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="product-card">
+        <div class="product-img"><img src="images/summer3.png" alt="Green Purple Sneaker" /></div>
+        <div class="product-top">
+          <span class="price">$129.99</span>
+          <span class="tag">Women's Sneakers</span>
+        </div>
+        <h4 class="product-name">Blush Platform</h4>
+        <p class="product-desc">Bold eye-catching colorway with a breathable mesh upper and air cushioning.</p>
+        <div class="product-btns">
+          <button class="btn btn-light">Add to Cart</button>
+
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="product-card">
+        <div class="product-img"><img src="images/summer4.png" alt="Retro Runner" /></div>
+        <div class="product-top">
+          <span class="price">$99.99</span>
+          <span class="tag">Women's Sneakers</span>
+        </div>
+        <h4 class="product-name">Mint Breeze Slip-On</h4>
+        <p class="product-desc">Cream and deep red retro runner with suede overlays and a layered sole.</p>
+        <div class="product-btns">
+          <button class="btn btn-light">Add to Cart</button>
+
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="product-card">
+        <div class="product-img"><img src="images/summer5.png" alt="Black Gold Low-Top" /></div>
+        <div class="product-top">
+          <span class="price">$59.96</span>
+          <span class="tag">Kid's Sneakers</span>
+        </div>
+        <h4 class="product-name">Sunny Kids Runner</h4>
+        <p class="product-desc">Sleek green low-top with white accents and a crisp, clean sole.</p>
+        <div class="product-btns">
+          <button class="btn btn-light">Add to Cart</button>
+          
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="product-card">
+        <div class="product-img"><img src="images/summer6.png" alt="Black Gold High-Top" /></div>
+        <div class="product-top">
+          <span class="price">$169.99</span>
+          <span class="tag">Kid's Sneakers</span>
+        </div>
+        <h4 class="product-name">Mini High-Top</h4>
+        <p class="product-desc">High-top with an ankle strap, red details and a translucent White sole.</p>
+        <div class="product-btns">
+          <button class="btn btn-light">Add to Cart</button>
+
+        </div>
+      </div>
+  </div>
+</section>
+
+<!-- banner -->
+ <section class="container">
+  <div class="cta">
+    <img src="images/cta.png" alt="hands holding sneakers" class="cta-img"/>
+    <div class="cta-content">
+      <h2>Build your Style Confident steps by Wearing Our Sneakers</h2>
+      <button class="btn btn-white">Shop Now</button>
+    </div>
+  </div>
+ </section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container footer-inner">
+
+    <div class="footer-brand">
+      <a href="index.html" class="logo"><img src="images/shoselogo.png" alt="Sneaker Store Logo" /></a>
+      <p>We specialize in buying and selling high-quality authentic sneakers, with every pair reflecting our unique style and culture.</p>
+      <h4>Subscribe to Newsletter</h4>
+      <div class="subscribe">
+        <input type="email" placeholder="Enter your email address" />
+        <button class="btn btn-white">Subscribe</button>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <a href="#">Women</a>
+      <a href="#">Men</a>
+      <a href="#">Kids</a>
+      <a href="#">Accessories</a>
+      <a href="#">Collections</a>
+      <a href="#">Brands</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Term and Condition</a>
+      <a href="#">Refund Policy</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Help</h4>
+      <a href="#">How To Order</a>
+      <a href="#">Track Order</a>
+      <a href="#">Return &amp; Exchanges</a>
+      <a href="#">About Us</a>
+      <a href="#">FAQ</a>
+      <a href="#">Contact Us</a>
+    </div>
+
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Copyright by Sneaker Store. All Right Reserved</p>
+    <div class="socials">
+      <a href="#">Twitter</a>
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+  <script src="js/main.js"></script>
+  <script src="js/api-test.js"></script>
+</body>
+</html>
