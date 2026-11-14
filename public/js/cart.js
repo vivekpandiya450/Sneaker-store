@@ -99,7 +99,7 @@ function updateOrderSummary() {
 
 // ===== ADDRESS =====
 const token=localStorage.getItem("token")
-const ADDRESS_API="http://localhost:3000/api/addresses"
+const ADDRESS_API="/api/addresses"
 const modal = document.querySelector("#address-modal");
 const addBtn = document.querySelector("#add-address-btn");
 const closeBtn = document.querySelector("#close-modal");

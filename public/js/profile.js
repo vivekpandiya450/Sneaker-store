@@ -9,7 +9,7 @@ if(!token){
 // featch user Profile
 async function loadProfile(){
     try{
-        const response=await fetch("http://localhost:3000/api/auth/profile",{
+        const response=await fetch("/api/auth/profile",{
             method:"GET",
             headers:{
                 "Authorization": `Bearer ${token}`
