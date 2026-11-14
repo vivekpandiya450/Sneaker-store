@@ -51,3 +51,22 @@ document.addEventListener("click", (event) => {
     console.log("Product added to cart:", product);
     console.log("Current cart:", cart);
 });
+
+
+// Navbar Authentication
+
+const token = localStorage.getItem("token");
+
+const loginBtn = document.querySelector("#login-btn");
+const signupBtn = document.querySelector("#signup-btn");
+const profileBtn = document.querySelector("#profile-btn");
+
+if (token) {
+    loginBtn.style.display = "none";
+    signupBtn.style.display = "none";
+    profileBtn.style.display = "inline-block";
+} else {
+    loginBtn.style.display = "inline-block";
+    signupBtn.style.display = "inline-block";
+    profileBtn.style.display = "none";
+}

@@ -98,6 +98,8 @@ function updateOrderSummary() {
 
 
 // ===== ADDRESS =====
+const token=localStorage.getItem("token")
+const ADDRESS_API="http://localhost:3000/api/addresses"
 const modal = document.querySelector("#address-modal");
 const addBtn = document.querySelector("#add-address-btn");
 const closeBtn = document.querySelector("#close-modal");
@@ -114,56 +116,28 @@ const fields = {
     state: document.querySelector("#state")
 };
 
-// Read addresses; migrate the old single address only once.
-function getAddresses() {
-    let addresses = [];
-
-    if (localStorage.getItem("deliveryAddresses") !== null) {
-        try {
-            addresses = JSON.parse(localStorage.getItem("deliveryAddresses"));
-            if (!Array.isArray(addresses)) addresses = [];
-        } catch {
-            addresses = [];
-        }
-    } else {
-        try {
-            const old = JSON.parse(localStorage.getItem("deliveryAddress"));
-            if (old && typeof old === "object") {
-                addresses.push({
-                    ...old,
-                    id: old.id || Date.now(),
-                    mobile: old.mobile || old.moblie || ""
-                });
+async function getAddresses(){
+    try{
+        const response=await fetch(ADDRESS_API,{
+            method:"GET",
+            headers:{
+                "Authorization": `Bearer ${token}`
             }
-        } catch {}
+        });
+        const data=await response.json();
 
-        localStorage.setItem("deliveryAddresses", JSON.stringify(addresses));
-    }
-
-    let changed = false;
-
-    addresses.forEach(a => {
-        if (a.id == null) {
-            a.id = Date.now() + Math.random();
-            changed = true;
+        if(!response.ok){
+            throw new Error(data.message||"Failed to featch address");
         }
-
-        if (!a.mobile && a.moblie) {
-            a.mobile = a.moblie;
-            changed = true;
-        }
-    });
-
-    if (changed) {
-        localStorage.setItem("deliveryAddresses", JSON.stringify(addresses));
+        return data.addresses
     }
-
-    return addresses;
+    catch(error){
+        console.error("Featch Address Error:",error)
+    }
+    return [];
 }
 
-function saveAddresses(addresses) {
-    localStorage.setItem("deliveryAddresses", JSON.stringify(addresses));
-}
+
 
 function closeAddressForm() {
     if (modal) modal.style.display = "none";
@@ -175,7 +149,7 @@ function openAddressForm(address = null) {
     if (!modal || !form) return;
 
     form.reset();
-    editingId = address ? address.id : null;
+   editingId = address ? address._id : null;
 
     Object.keys(fields).forEach(key => {
         fields[key].value = address
@@ -202,10 +176,10 @@ if (modal) {
 
 
 // ===== DISPLAY ADDRESSES =====
-function displayAddresses() {
+async function displayAddresses() {
     if (!addressBox) return;
 
-    const addresses = getAddresses();
+    const addresses =await getAddresses();
     addressBox.innerHTML = "";
 
     if (!addresses.length) {
@@ -243,21 +217,35 @@ function displayAddresses() {
         del.textContent = "Delete Address";
         del.className = "delete-address-btn";
 
-        del.onclick = () => {
-            if (!confirm("Kya aap is address ko delete karna chahte hain?")) return;
+del.onclick = async () => {
 
-            const updated = getAddresses().filter(
-                item => String(item.id) !== String(a.id)
-            );
+    if (!confirm("Are you sure you want to delete this address?")) {
+        return;
+    }
 
-            saveAddresses(updated);
-
-            if (!updated.length) {
-                localStorage.removeItem("deliveryAddress");
+    try {
+        const response = await fetch(`${ADDRESS_API}/${a._id}`, {
+            method: "DELETE",
+            headers: {
+                "Authorization": `Bearer ${token}`
             }
+        });
 
-            displayAddresses();
-        };
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.message);
+        }
+
+        alert("Address deleted successfully!");
+
+        displayAddresses();
+
+    } catch (error) {
+        console.error("Delete Address Error:", error);
+        alert(error.message);
+    }
+};
 
         actions.append(edit, del);
         card.append(title, name, details, actions);
@@ -268,37 +256,47 @@ function displayAddresses() {
 
 // ===== SAVE / EDIT ADDRESS =====
 if (form) {
-    form.addEventListener("submit", e => {
+    form.addEventListener("submit",async (e) => {
         e.preventDefault();
 
-        const address = {
-            id: editingId ?? Date.now() + Math.random(),
-            fullname: fields.fullname.value.trim(),
-            mobile: fields.mobile.value.trim(),
-            pincode: fields.pincode.value.trim(),
-            city: fields.city.value.trim(),
-            state: fields.state.value.trim()
-        };
+     const address = {
+    fullname: fields.fullname.value.trim(),
+    mobile: fields.mobile.value.trim(),
+    pincode: fields.pincode.value.trim(),
+    city: fields.city.value.trim(),
+    state: fields.state.value.trim()
+};
 
         if (Object.values(address).some(v => v === "" || v == null)) {
             alert("Please fill in all address fields.");
             return;
-        }
+        } 
 
-        let addresses = getAddresses();
+        const method = editingId ? "PUT" : "POST";
 
-        if (editingId !== null) {
-            addresses = addresses.map(a =>
-                String(a.id) === String(editingId) ? address : a
-            );
-        } else {
-            addresses.push(address);
-        }
+const url = editingId
+    ? `${ADDRESS_API}/${editingId}`
+    : ADDRESS_API;
 
-        saveAddresses(addresses);
-        displayAddresses();
-        closeAddressForm();
-        alert("Address saved successfully!");
+const response = await fetch(url, {
+    method: method,
+    headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+    },
+    body: JSON.stringify(address)
+});
+
+const data = await response.json();
+
+if (!response.ok) {
+    throw new Error(data.message || "Address save failed");
+}
+
+alert(editingId ? "Address updated successfully!" : "Address added successfully!");
+
+closeAddressForm();
+displayAddresses();
     });
 }
 // "pay now button"

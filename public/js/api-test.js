@@ -1,5 +1,5 @@
 // NEWLY DROPPED PRODUCTS
-fetch("/api/products/section/newly")
+fetch("http://localhost:3000/api/products/section/newly")
     .then((response) => response.json())
     .then((data) => {
 
@@ -82,7 +82,7 @@ fetch("/api/products/section/newly")
     });
 
 // SUMMER COLLECTION PRODUCTS
-fetch("/api/products/section/summer")
+fetch("http://localhost:3000/api/products/section/summer")
     .then((response) => response.json())
     .then((data) => {
 

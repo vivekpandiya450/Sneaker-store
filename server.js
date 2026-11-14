@@ -4,7 +4,12 @@ const Product=require("./models/Product")
 const express=require("express");
 const app=express();
 const productRoutes=require("./routes/productRoutes")
+const authRoutes=require("./routes/authRoutes")
 
+const addressRoutes=require("./routes/addressRoutes.js");
+
+const cors=require("cors")
+app.use(cors({origin:"http://127.0.0.1:5500"}))
 app.use(express.json())
 
 const PORT=3000;
@@ -14,6 +19,9 @@ app.use(express.static("public"));
 
 
 app.use("/api/products",productRoutes)
+app.use("/api/auth",authRoutes)
+app.use("/api/addresses",addressRoutes)
+
 mongoose.connect(process.env.MONGO_URI)
      .then(()=>{
         console.log("MongoDB connected Successfully!");
